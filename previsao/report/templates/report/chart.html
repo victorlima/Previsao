@@ -18,19 +18,44 @@
                 title: { text: 'Previsão de Ondas' },
                 tooltips: { type: 'shared' },
                 animation: { duration: 1 },
-                series: [
-                            {
-                                type: 'spline',
-                                title: 'Waves',
-                                {{ data_waves }}
-                            }
-                        ]
+                axes: [
+                {
+                  type: 'linear',
+                  location: 'left',
+                  title: 'altura (m)'
+                },
+                {
+                  type: 'dateTime',
+                  location: 'bottom',
+                  interval: 1,
+                  intervalType: 'days'
+                }
+               ],
+               series: [
+                    {
+                        type: 'spline',
+                        title: 'Waves',
+                        {{ data_waves }}
+                    }
+                ]
             });
 
             $('#winds').jqChart({
                 title: { text: 'Previsão de Ventos' },
                 tooltips: { type: 'shared' },
                 animation: { duration: 1 },
+                axes: [
+                {
+                  type: 'linear',
+                  location: 'left',
+                  title: 'velocidade (nós)'
+                },
+                {
+                  type: 'dateTime',
+                  location: 'bottom',
+                  interval: 1,
+                  intervalType: 'days'
+                }],
                 series: [
                             {
                                 type: 'spline',
