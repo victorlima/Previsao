@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>
+        Previsão de Ondas Rio de Janeiro
+    </title>
+    <link rel="stylesheet" type="text/css" href="http://www.jqchart.com/samples/css/jquery.jqChart.css" />
+    <link rel="stylesheet" type="text/css" href="http://www.jqchart.com/samples/css/jquery.jqRangeSlider.css" />
+    <link rel="stylesheet" type="text/css" href="http://www.jqchart.com/samples/themes/le-frog/jquery-ui-1.8.20.css" />
+    <script src="http://www.jqchart.com/samples/Scripts/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="http://www.jqchart.com/samples/Scripts/jquery.jqChart.min.js" type="text/javascript"></script>
+    <script src="http://www.jqchart.com/samples/Scripts/jquery.jqRangeSlider.min.js" type="text/javascript"></script>
+    <!--[if IE]><script lang="javascript" type="text/javascript" src="http://www.jqchart.com/samples/js/excanvas.js"></script><![endif]-->
+    
+    <script lang="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $('#waves').jqChart({
+                title: { text: 'Previsão de Ondas' },
+                tooltips: { type: 'shared' },
+                animation: { duration: 1 },
+                series: [
+                            {
+                                type: 'spline',
+                                title: 'Waves',
+                                {{ data_waves }}
+                            }
+                        ]
+            });
+
+            $('#winds').jqChart({
+                title: { text: 'Previsão de Ventos' },
+                tooltips: { type: 'shared' },
+                animation: { duration: 1 },
+                series: [
+                            {
+                                type: 'spline',
+                                title: 'Winds',
+                                {{ data_winds }}
+                            }
+                        ]
+            });
+
+        });
+    </script>
+
+
+</head>
+<body>
+    <div>
+        <div id="waves" style="width: 500px; height: 300px;">
+        </div>
+        <div id="winds" style="width: 500px; height: 300px;">
+        </div>
+    </div>
+</body>
+</html>
