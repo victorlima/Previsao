@@ -10,9 +10,6 @@ ADMINS = (
 MANAGERS = ADMINS
 
 DATABASES = {
-    'heroku' : {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-    },
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'previsao.db',                      # Or path to database file if using sqlite3.
@@ -153,4 +150,6 @@ LOGGING = {
 }
 
 import dj_database_url
-DATABASES['heroku'] =  dj_database_url.config()
+import os
+if os.getcwd() == "/app":
+    DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
